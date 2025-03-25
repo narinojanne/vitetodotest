@@ -13,6 +13,10 @@ function App() {
     setTodo({ desc: "", date: "" });
   };
 
+  const clearAllTodos = () => {
+    setTodos([]);
+  };
+
   const inputChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTodo({ ...todo, [event.target.name]: event.target.value });
   };
@@ -35,6 +39,7 @@ function App() {
         onChange={inputChanged}
       />
       <button onClick={addTodo}>Add</button>
+      <button onClick={clearAllTodos}>Clear All Todos</button>
       <TodoTable todos={todos} />
     </div>
   );
